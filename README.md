@@ -8,6 +8,7 @@ Skills describe **how to perform a task**. Cross-project engineering rules descr
 
 | Skill | Purpose | Mode |
 | --- | --- | --- |
+| [architecture-design](.agents/skills/architecture-design/SKILL.md) | Design a proposed architecture from requirements, alternatives, C4 views, and ADR proposals | Read-only |
 | [architecture-review](.agents/skills/architecture-review/SKILL.md) | Evidence-based review of an existing software/system architecture | Read-only |
 | [grill-me](.agents/skills/grill-me/SKILL.md) | Challenge an idea, plan, or technical decision through dependency-aware interview rounds | Read-only, explicit invocation |
 
@@ -17,6 +18,13 @@ Additional skills will be added individually through reviewed PRs.
 
 ```text
 .agents/skills/
+  architecture-design/
+    SKILL.md
+    references/
+      design-decisions.md
+    assets/
+      architecture-proposal-template.md
+      adr-proposal-template.md
   architecture-review/
     SKILL.md
     references/
