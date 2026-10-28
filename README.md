@@ -11,6 +11,7 @@ Skills describe **how to perform a task**. Cross-project engineering rules descr
 | [architecture-design](.agents/skills/architecture-design/SKILL.md) | Design a proposed architecture from requirements, alternatives, C4 views, and ADR proposals | Read-only |
 | [architecture-review](.agents/skills/architecture-review/SKILL.md) | Evidence-based review of an existing software/system architecture | Read-only |
 | [grill-me](.agents/skills/grill-me/SKILL.md) | Challenge an idea, plan, or technical decision through dependency-aware interview rounds | Read-only, explicit invocation |
+| [testing-strategy](.agents/skills/testing-strategy/SKILL.md) | Risk-based testing plan, prioritized test cases, environments, and CI/release gates | Read-only |
 
 Additional skills will be added individually through reviewed PRs.
 
@@ -35,6 +36,12 @@ Additional skills will be added individually through reviewed PRs.
       question-bank.md
     assets/
       decision-brief-template.md
+  testing-strategy/
+    SKILL.md
+    references/
+      risk-and-coverage-guide.md
+    assets/
+      test-strategy-template.md
 tests/
   evals/               # Manual behavior and injection-resistance scenarios
 tools/
@@ -47,7 +54,7 @@ Each skill follows the [Agent Skills specification](https://agentskills.io/speci
 
 ## Use
 
-In an agent supporting repository-local `.agents/skills/`, open this repository or explicitly make a **reviewed local copy** of an individual skill available at the agent's supported discovery path. Invoke `architecture-review` when reviewing an existing system; explicitly request `grill-me` to challenge a plan, idea, or consequential technical decision through interview rounds. For `grill-me`, configure user-only invocation in the agent runtime where supported. Agent-specific discovery, invocation policies, and permissions must be configured separately; this repository cannot enforce them.
+In an agent supporting repository-local `.agents/skills/`, open this repository or explicitly make a **reviewed local copy** of an individual skill available at the agent's supported discovery path. Invoke `architecture-review` when reviewing an existing system; explicitly request `grill-me` to challenge a plan, idea, or consequential technical decision through interview rounds. For `grill-me`, configure user-only invocation in the agent runtime where supported. Invoke `testing-strategy` to plan proportionate verification for new or changed behavior without running tests or pipelines. Agent-specific discovery, invocation policies, and permissions must be configured separately; this repository cannot enforce them.
 
 Do not install skills from registries, remote URLs, or unreviewed repositories. Avoid automated synchronizers. Prefer pinning the source repository to an approved commit or tag when copying skills to other projects.
 
