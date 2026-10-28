@@ -9,6 +9,7 @@ Skills describe **how to perform a task**. Cross-project engineering rules descr
 | Skill | Purpose | Mode |
 | --- | --- | --- |
 | [architecture-review](.agents/skills/architecture-review/SKILL.md) | Evidence-based review of an existing software/system architecture | Read-only |
+| [testing-strategy](.agents/skills/testing-strategy/SKILL.md) | Risk-based testing plan, prioritized test cases, environments, and CI/release gates | Read-only |
 
 Additional skills will be added individually through reviewed PRs.
 
@@ -20,6 +21,12 @@ Additional skills will be added individually through reviewed PRs.
     SKILL.md
     references/
       review-checklist.md
+  testing-strategy/
+    SKILL.md
+    references/
+      risk-and-coverage-guide.md
+    assets/
+      test-strategy-template.md
 tests/
   evals/               # Manual behavior and injection-resistance scenarios
 tools/
@@ -32,7 +39,7 @@ Each skill follows the [Agent Skills specification](https://agentskills.io/speci
 
 ## Use
 
-In an agent supporting repository-local `.agents/skills/`, open this repository or explicitly make a **reviewed local copy** of an individual skill available at the agent's supported discovery path. Invoke `architecture-review` when reviewing an existing system. Agent-specific discovery and permission settings must be configured separately; this repository does not grant tool permissions.
+In an agent supporting repository-local `.agents/skills/`, open this repository or explicitly make a **reviewed local copy** of an individual skill available at the agent's supported discovery path. Invoke `architecture-review` when reviewing an existing system; invoke `testing-strategy` to plan how new or changed behavior should be verified. This skill proposes tests and gates but does not execute them. Agent-specific discovery and permission settings must be configured separately; this repository does not grant tool permissions.
 
 Do not install skills from registries, remote URLs, or unreviewed repositories. Avoid automated synchronizers. Prefer pinning the source repository to an approved commit or tag when copying skills to other projects.
 
@@ -55,7 +62,7 @@ python3 tools/validate_skills.py
 python3 -m unittest discover -s tests -p 'test_*.py' -v
 ```
 
-These checks validate structure and local references; [behavioral scenarios](tests/evals/architecture-review.md) require a separate manual agent run. A passing CI check does **not** prove resistance to prompt injection or correctness of an architecture review.
+These checks validate structure and local references; [behavioral scenarios](tests/evals/) require a separate manual agent run. A passing CI check does **not** prove resistance to prompt injection or the quality of generated testing strategies.
 
 ## Contributing
 
