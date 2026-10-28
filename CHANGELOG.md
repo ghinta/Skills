@@ -5,6 +5,7 @@ Notable changes to the skill collection are recorded here.
 ## Unreleased
 
 ### Added
+- `test-gap-analysis` skill for evidence-based audit of assertions, contracts, security boundaries and CI gaps, with prioritized improvements.
 - `testing-strategy` skill for risk-based verification plans, scenario traceability, CI/release gates, and manual evaluation cases.
 - `grill-me` skill: critical decision interviews for ideas, plans, and technical choices; decision tree, frontier, living decision log, and optional Decision Brief.
 - Manual behavioral and prompt-injection evaluation scenarios for `grill-me`; validator regression for multiple skills.
