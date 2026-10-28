@@ -35,6 +35,23 @@ class ValidatorTests(unittest.TestCase):
         (references / "checklist.md").write_text("# Checklist\n", encoding="utf-8")
         self.assertEqual(validate_repository(self.root), [])
 
+    def test_multiple_skills_with_local_template(self) -> None:
+        self.write_skill()
+        other = self.root / "grill-me"
+        other.mkdir()
+        (other / "assets").mkdir()
+        (other / "assets" / "brief.md").write_text("# Decision brief\n", encoding="utf-8")
+        (other / "SKILL.md").write_text(
+            "---\n"
+            "name: grill-me\n"
+            "description: Critically interview users about plans and decisions.\n"
+            "---\n\n"
+            "# Grill Me\n"
+            "See [brief](assets/brief.md).\n",
+            encoding="utf-8",
+        )
+        self.assertEqual(validate_repository(self.root), [])
+
     def test_missing_frontmatter(self) -> None:
         (self.skill / "SKILL.md").write_text("# Review\n", encoding="utf-8")
         self.assertTrue(any("frontmatter" in x for x in validate_skill(self.skill)))
