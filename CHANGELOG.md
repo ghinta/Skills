@@ -5,8 +5,8 @@ Notable changes to the skill collection are recorded here.
 ## Unreleased
 
 ### Added
-- `project-grill` skill: interactive dependency-aware project discovery, critical questioning, MVP scope, decision log, and project brief template.
-- Manual adversarial and workflow evaluation scenarios for `project-grill`; validator regression for multiple skills.
+- `grill-me` skill: critical decision interviews for ideas, plans, and technical choices; decision tree, frontier, living decision log, and optional Decision Brief.
+- Manual behavioral and prompt-injection evaluation scenarios for `grill-me`; validator regression for multiple skills.
 - Initial agent-neutral repository structure and security policy.
 - `architecture-review` skill for evidence-based, read-only architecture reviews.
 - Dependency-free validation, unit tests, and documented manual evaluation cases.

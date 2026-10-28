@@ -37,16 +37,16 @@ class ValidatorTests(unittest.TestCase):
 
     def test_multiple_skills_with_local_template(self) -> None:
         self.write_skill()
-        other = self.root / "project-grill"
+        other = self.root / "grill-me"
         other.mkdir()
         (other / "assets").mkdir()
-        (other / "assets" / "brief.md").write_text("# Project brief\n", encoding="utf-8")
+        (other / "assets" / "brief.md").write_text("# Decision brief\n", encoding="utf-8")
         (other / "SKILL.md").write_text(
             "---\n"
-            "name: project-grill\n"
-            "description: Interactively challenge new software-project ideas.\n"
+            "name: grill-me\n"
+            "description: Critically interview users about plans and decisions.\n"
             "---\n\n"
-            "# Project Grill\n"
+            "# Grill Me\n"
             "See [brief](assets/brief.md).\n",
             encoding="utf-8",
         )
