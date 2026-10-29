@@ -13,6 +13,7 @@ Skills describe **how to perform a task**. Cross-project engineering rules descr
 | [grill-me](.agents/skills/grill-me/SKILL.md) | Challenge an idea, plan, or technical decision through dependency-aware interview rounds | Read-only, explicit invocation |
 | [test-gap-analysis](.agents/skills/test-gap-analysis/SKILL.md) | Evidence-based audit of existing tests, assertions, and CI coverage | Read-only |
 | [testing-strategy](.agents/skills/testing-strategy/SKILL.md) | Risk-based testing plan, prioritized test cases, environments, and CI/release gates | Read-only |
+| [threat-modeling](.agents/skills/threat-modeling/SKILL.md) | STRIDE threat modeling with analysis and interactive learning modes | Read-only |
 
 Additional skills will be added individually through reviewed PRs.
 
@@ -49,6 +50,13 @@ Additional skills will be added individually through reviewed PRs.
       risk-and-coverage-guide.md
     assets/
       test-strategy-template.md
+  threat-modeling/
+    SKILL.md
+    references/
+      stride-guide.md
+      risk-assessment.md
+    assets/
+      threat-model-template.md
 tests/
   evals/               # Manual behavior and injection-resistance scenarios
 tools/
@@ -61,7 +69,7 @@ Each skill follows the [Agent Skills specification](https://agentskills.io/speci
 
 ## Use
 
-In an agent supporting repository-local `.agents/skills/`, open this repository or explicitly make a **reviewed local copy** of an individual skill available at the agent's supported discovery path. Invoke `architecture-review` when reviewing an existing system; explicitly request `grill-me` to challenge a plan, idea, or consequential technical decision through interview rounds. For `grill-me`, configure user-only invocation in the agent runtime where supported. Invoke `testing-strategy` to plan proportionate verification for new or changed behavior without running tests or pipelines. Invoke `test-gap-analysis` to audit existing tests and identify evidence-backed gaps. Agent-specific discovery, invocation policies, and permissions must be configured separately; this repository cannot enforce them.
+In an agent supporting repository-local `.agents/skills/`, open this repository or explicitly make a **reviewed local copy** of an individual skill available at the agent's supported discovery path. Invoke `architecture-review` when reviewing an existing system; explicitly request `grill-me` to challenge a plan, idea, or consequential technical decision through interview rounds. For `grill-me`, configure user-only invocation in the agent runtime where supported. Invoke `testing-strategy` to plan proportionate verification for new or changed behavior without running tests or pipelines. Invoke `test-gap-analysis` to audit existing tests and identify evidence-backed gaps. Invoke `threat-modeling` for read-only STRIDE assessments or explicitly request its interactive learning mode. Agent-specific discovery, invocation policies, and permissions must be configured separately; this repository cannot enforce them.
 
 Do not install skills from registries, remote URLs, or unreviewed repositories. Avoid automated synchronizers. Prefer pinning the source repository to an approved commit or tag when copying skills to other projects.
 

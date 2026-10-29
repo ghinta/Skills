@@ -5,6 +5,7 @@ Notable changes to the skill collection are recorded here.
 ## Unreleased
 
 ### Added
+- `threat-modeling` skill with STRIDE-based analysis, interactive learning, DFD-like Mermaid template, qualitative risk register and 18 manual evaluation scenarios.
 - `test-gap-analysis` skill for evidence-based audit of assertions, contracts, security boundaries and CI gaps, with prioritized improvements.
 - `testing-strategy` skill for risk-based verification plans, scenario traceability, CI/release gates, and manual evaluation cases.
 - `grill-me` skill: critical decision interviews for ideas, plans, and technical choices; decision tree, frontier, living decision log, and optional Decision Brief.
