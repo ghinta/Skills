@@ -5,6 +5,7 @@ Notable changes to the skill collection are recorded here.
 ## Unreleased
 
 ### Changed
+- Add an offline, dependency-free Rules/Skills routing drift checker, eleven unit tests, and a read-only GitHub Actions Rules comparison on PRs, main pushes, weekly runs and manual dispatch.
 - Align all eight Skills in README with Rules routing and explicit invocation; generalize Security and AGENTS documentation.
 
 ### Added

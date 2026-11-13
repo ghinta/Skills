@@ -79,6 +79,7 @@ tests/
   evals/               # Manual behavior and injection-resistance scenarios
 tools/
   validate_skills.py   # Dependency-free static validator
+  check_skill_routing.py  # Offline Rules/Skills catalog drift checker
 .github/workflows/
   validate-skills.yml
 ```
@@ -110,10 +111,12 @@ Requires Python 3 (standard library only).
 ```sh
 python3 tools/validate_skills.py
 python3 -m unittest discover -s tests -p 'test_*.py' -v
+# With a separate, already reviewed local checkout of Rules:
+python3 tools/check_skill_routing.py --rules-root ../Rules
 ```
 
-These checks validate structure and local references; [behavioral scenarios](tests/evals/) require a separate manual agent run. A passing CI check does **not** prove resistance to prompt injection or the quality of an agent's decisions.
+These checks validate structure and local references; [behavioral scenarios](tests/evals/) require a separate manual agent run. GitHub Actions also checks out **ghinta/Rules as read-only data** and compares the current Skills directory/frontmatter and README catalog with `Rules/80-agent-skills.md`, including referenced rule files. The drift check runs on PRs, pushes to `main`, weekly on Monday, and manually; a Rules-only change is detected by the next scheduled/manual check (not immediately by a Rules webhook). It never installs or executes Rules/Skill content. A passing CI check does **not** prove resistance to prompt injection, the quality of an agent's decisions, or that skill activation policy is technically enforced.
 
 ## Contributing
 
-Add one skill per PR at `.agents/skills/<skill-name>/SKILL.md`, with a concise trigger description and explicit output contract. Keep detailed checklists in `references/`, supply evaluation cases, update the catalog, and avoid copying the contents of [Engineering Rules](https://github.com/ghinta/Rules). Do not modify the default branch directly.
+Add one skill per PR at `.agents/skills/<skill-name>/SKILL.md`, with a concise trigger description and explicit output contract. Keep detailed checklists in `references/`, supply evaluation cases, update the catalog, and avoid copying the contents of [Engineering Rules](https://github.com/ghinta/Rules). Coordinate a Rules routing update for each new, renamed or retired Skill; cross-repository routing must match before the drift gate can pass. Do not modify the default branch directly.
