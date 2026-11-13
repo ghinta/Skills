@@ -4,8 +4,11 @@ Notable changes to the skill collection are recorded here.
 
 ## Unreleased
 
+### Changed
+- Align all eight Skills in README with Rules routing and explicit invocation; generalize Security and AGENTS documentation.
+
 ### Added
-- `documentation` skill: short-first technical docs, TL;DR/navigation, tables, selective Mermaid/C4, change/ADR maintenance, release-version preflight and 19 manual evaluations.
+- `documentation` skill: short-first technical docs, TL;DR/navigation, tables, selective Mermaid/C4, change/ADR maintenance, release-version preflight and 22 manual evaluations.
 - `adr-authoring` skill for drafting, improving and superseding architectural decision records, with local lifecycle guidance, Markdown template and 18 behavioral scenarios.
 - `threat-modeling` skill with STRIDE-based analysis, interactive learning, DFD-like Mermaid template, qualitative risk register and 18 manual evaluation scenarios.
 - `test-gap-analysis` skill for evidence-based audit of assertions, contracts, security boundaries and CI gaps, with prioritized improvements.
